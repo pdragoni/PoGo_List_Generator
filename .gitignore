@@ -1,0 +1,5 @@
+# This is a .gitignore file for the PoGo List Generator project
+
+final_list.txt
+
+pokemon_list.json
