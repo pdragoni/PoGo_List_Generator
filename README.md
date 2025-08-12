@@ -22,10 +22,10 @@ python3 fetch_pokemon.py
 python3 generate_list.py
 ```
 O primeiro script irá buscar os dados dos Pokémon existentes no universo Pokémon, inclusive os ainda não lançados. 
-O segundo script irá gerar uma lista de Pokémon com base nos dados obtidos, permitindo que você escolha quais Pokémon deseja trocar ou excluir.
+O segundo script irá gerar uma lista de Pokémon com base nos dados obtidos, permitindo que você escolha quais Pokémon deseja trocar ou excluir e filtrar por região.
 
 _The first script will fetch data of all Pokémon, including those not yet released.
-The second script will generate a list of Pokémon based on the fetched data, allowing you to choose which Pokémon you want to trade or delete._
+The second script will generate a list of Pokémon based on the fetched data, allowing you to choose which Pokémon you want to trade or delete and filter by region._
 
 ## Contribuição (Contribution)
 
