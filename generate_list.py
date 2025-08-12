@@ -1,5 +1,10 @@
 import json
 
+regions = [
+    "kanto", "johto", "hoenn", "sinnoh", "unova",
+    "kalos", "alola", "galar", "hisui", "paldea"
+]
+
 def process_pokemon_list():
     input_file = "pokemon_list.json"
     output_file = "final_list.txt"
@@ -11,7 +16,6 @@ def process_pokemon_list():
         return
 
     list_type = input("Trade (1) or Delete (2)? ")
-    # Definição do formato de escrita conforme a lista desejada
     if list_type == "1":
         format_str = "{id},"
     elif list_type == "2":
@@ -20,13 +24,21 @@ def process_pokemon_list():
         print("list_type not recognized. Use '1' or '2'.")
         return
 
-    # Escrita no arquivo (usando apenas as chaves do dict)
+    print("Selecione as regiões desejadas (separe por vírgula, ex: kanto,johto,hoenn):")
+    print("Opções disponíveis:", ", ".join(regions))
+    selected = input("Regiões: ").lower().replace(" ", "").split(",")
+    selected = [r for r in selected if r in regions]
+    if not selected or selected == [""]:
+        selected = regions
+
     with open(output_file, "w", encoding="utf-8") as file:
-        for id in pokemon_data.keys():
-            file.write(format_str.format(id=id))
+        for id, data in pokemon_data.items():
+            # Suporta múltiplas regiões por Pokémon
+            poke_regions = data.get("regions", [])
+            if any(region in poke_regions for region in selected):
+                file.write(format_str.format(id=id))
 
     print(f"Dados salvos em {output_file}")
 
-# Entrada do usuário
 if __name__ == "__main__":
     process_pokemon_list()
