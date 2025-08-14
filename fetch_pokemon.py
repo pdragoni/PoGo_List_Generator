@@ -118,7 +118,7 @@ def fetch_pokemon():
             entry = {
                 "name": name,
                 "regions": regions,
-                "shiny": True
+                "shiny": False
             }
             if special_category:
                 entry["special_category"] = special_category
